@@ -1,0 +1,12 @@
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+.dropdown-item.active {
+	background-color: grey;
+	color: black!important;
+}
+.jumbotron {
+  background-size: cover;
+  height:  100%;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title>Draft of Final Project</title>
+	<meta charset="utf-8">
+	<!-- My own css and javascript -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" id="stylesheet" href="css/style.css">
+
+	<!-- Firebase -->
+
+
+	<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyCqZJfarYZwRtdjnqwzv850lQ4Dtn5cZac",
+			authDomain: "webapp1-eae61.firebaseapp.com",
+			databaseURL: "https://webapp1-eae61.firebaseio.com",
+			projectId: "webapp1-eae61",
+			storageBucket: "webapp1-eae61.appspot.com",
+			messagingSenderId: "289182600464"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+</head>
+<body id="body">
+
+
+
+	<!-- The Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand text-light" data-toggle="tooltip" data-placement="right" title="Click Here for a randomized message!" id="randommessage" onclick="randommessage()">Kevin Shi</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse text-right" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item ">
+					<a class="nav-link" href="./index.html">Home <span class="sr-only">(Navbar Item)</span></a>
+				</li>
+					<!-- 
+					<li class="nav-item">
+						<a class="nav-link" href="#">Test item <span class="sr-only">(Navbar Item)</span></a>
+					</li>
+				-->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="	button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						About Me
+					</a>
+					<div class="dropdown-menu bg-dark" >
+						<a class="dropdown-item text-light font-weight-bold" href="./ilike.html">Things I Like</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item text-light" href="./mtg.html">Magic the Gathering</a>
+						<a class="dropdown-item text-light" href="./excel.html">Microsoft Excel</a>
+						<a class="dropdown-item text-light" href="./sublime.html">Sublime Text</a>
+					</div>
+				</li>
+				<li class="nav-item active dropdown">
+					<a class="nav-link dropdown-toggle active" href="#" role="	button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						School at BCIT
+					</a>
+					<div class="dropdown-menu bg-dark" >
+						<a class="dropdown-item text-light font-weight-bold active" href="./school.html">School Projects</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item text-light" href="./database.html">Database - Magic the Gathering</a>
+						<a class="dropdown-item text-light " href="./python.html">Python - Voice Recognition Assistant</a>
+						<a class="dropdown-item text-light" href="./comm.html">Communications - Gene Editing</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./contact.html">Contact Us<span class="sr-only">(Navbar Item)</span></a>
+				</li>
+
+				<li class="nav-link text-light">
+				</li>
+				<li class="nav-item">
+					<button type="button"  id="user" class="btn btn-primary" data-toggle="modal" data-target="#inputModal">
+						Account
+					</button>          </li>
+					<li class="nav-item">
+						<button type="button" onclick="signOut()" class="btn btn-dark">Sign Out</button>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="inputModalLabel">Sign in or Make an Account</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" class="form-control" id="email" placeholder="em@il.ca">
+								</div>
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input type="password" class="form-control" id="password" placeholder="Tr0ub4dor&3">
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer text-right">
+							<button type="button" data-dismiss="modal" onclick="adduser()" class="btn btn-primary">Make Account</button>
+							<button type="button" data-dismiss="modal" onclick="signIn()" class="btn btn-primary">Sign In</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+
+		<!-- School Projects -->
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">School Projects</h1>
+				<p>This term I've had a lot of projects, aside from this one. Here are three from the other classes I am taking.</p>
+				<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+			</div>
+		</div>
+
+
+
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Database</h2>
+					<p>My project about Magic the Gathering and modelling. I had to make an ERD and some SQL tables.</p>
+
+					<p><a class="btn btn-secondary" href="./database.html" role="button">Visit Page &raquo;</a></p>
+				</div>
+				<div class="col-md-4">
+					<h2>Python</h2>
+					<p>A voice recognition program that can act as a very very simple Siri. A group project that I did with 2 other students.</p>
+					<p><a class="btn btn-secondary" href="./python.html" role="button">Visit Page &raquo;</a></p>
+				</div>
+				<div class="col-md-4">
+					<h2>Communications</h2>
+					<p>A group presentation about Gene Editing and Genetic Engineering. All 4 of us presented in front of the class.</p>
+					<p><a class="btn btn-secondary" href="./comm.html" role="button">Visit Page &raquo;</a></p>
+				</div>
+			</div>
+
+			<hr>
+
+		</div> <!-- /container -->
+
+
+
+
+
+
+
+
+
+
+				<footer class="page-footer font-small text-light bg-dark mt-sm-3">
+
+
+					<!-- Copyright -->
+					<div class="footer-copyright text-center py-3">© 2019 Copyright:
+						Kevin Shi
+						<em>All Rights Reserved</em>
+					</div>
+					<!-- Copyright -->
+
+				</footer>
+
+				<!-- Optional JavaScript -->
+				<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+				<script src="js/final_project.js"> 
+		// my own script 
+	</script>
+</body>
+</html>
